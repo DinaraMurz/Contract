@@ -7,14 +7,34 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Печать" HorizontalAlignment="Left" Margin="685,370,0,0" VerticalAlignment="Top" Width="75"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" Text="Введите ФИО" VerticalAlignment="Top" Height="25" Width="150"/>
-        <TextBox HorizontalAlignment="Left" Margin="197,10,0,0" TextWrapping="Wrap" Text="{Binding Path=FullName}" VerticalAlignment="Top" Height="25" Width="150"/>
-        
-        <TextBlock HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="Введите адрес" VerticalAlignment="Top" Height="25" Width="150"/>
-        <TextBox HorizontalAlignment="Left" Margin="197,40,0,0" TextWrapping="Wrap" Text="{Binding Path=Address}" VerticalAlignment="Top" Height="25" Width="150"/>
+        <TextBox Name="FullNameTextBox" HorizontalAlignment="Left" Margin="197,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="150"/>
 
-        
+        <TextBlock HorizontalAlignment="Left" Margin="10,40,0,0" TextWrapping="Wrap" Text="Введите основания" VerticalAlignment="Top" Height="25" Width="150"/>
+        <TextBox Name="ReasonTextBox" HorizontalAlignment="Left" Margin="197,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="150"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" Text="Введите адрес" VerticalAlignment="Top" Height="25" Width="150"/>
+        <TextBox Name="AddressTextBox" HorizontalAlignment="Left" Margin="197,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Height="25" Width="150"/>
+
+        <TextBlock Name="contract" Margin="105,122,142,68">
+            <Run Text="Договор"  FontSize="18"/>
+            <LineBreak />
+            <LineBreak />
+            <LineBreak />
+            <Run  Text="Действующий "/>
+            <Run Text="{Binding ElementName=FullNameTextBox, Path=Text}" />
+            <Run Text="пишет этот договор и  "/>
+            <LineBreak />
+            <LineBreak />
+            <Run Text="действует на основании"/>
+            <Run  Text="{Binding ElementName=ReasonTextBox, Path=Text}" />
+            <LineBreak />
+            <LineBreak />
+            <Run Text="Проживающий по адрусу "/>
+            <Run Text="{Binding ElementName=AddressTextBox, Path=Text}"/>
+        </TextBlock>
+
+        <Button Content="Печать" Click="PrintButtonClick" HorizontalAlignment="Left" Margin="685,370,0,0" VerticalAlignment="Top" Width="75"/>
         
     </Grid>
 </Window>
